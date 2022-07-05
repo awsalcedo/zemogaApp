@@ -1,6 +1,13 @@
 # Zemoga App Android Test
 
-![alt text](https://miro.medium.com/max/1400/1*wOmAHDN_zKZJns9YDjtrMw.jpeg)
+![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
+
+![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
+
+![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
+
+![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
+
 
 When starting the test app the first time, they load all the posts from the API, then the information is stored locally and with that information all the requested requirements are developed.
 
@@ -15,6 +22,8 @@ The "all posts" screen has a menu at the top with two options: delete all posts 
 Both the screen in favorites and all posts, can be reloaded using swiperRefresh.
 
 ## Architecture
+
+![alt text](https://miro.medium.com/max/1400/1*wOmAHDN_zKZJns9YDjtrMw.jpeg)
 
 The project is developed using Clean Architecture because following a good architecture helps in many ways, such as reducing development time, easy understanding, low maintenance, etc.
 
