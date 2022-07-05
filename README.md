@@ -1,7 +1,7 @@
 # Zemoga App Android Test
 
 <a href="https://drive.google.com/file/d/1ncoJXt5_dIvIUKVC-oG4hJKG29N6aFZ_/view?usp=sharing"/>
-  <img src="https://drive.google.com/file/d/1ncoJXt5_dIvIUKVC-oG4hJKG29N6aFZ_/view?usp=sharing" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+ 
   
   <a href="https://drive.google.com/file/d/1wZ9v6t0u0WLyGA1DsyMAPNkei5kpp-yV/view?usp=sharing"/>
   <img src="https://drive.google.com/file/d/1wZ9v6t0u0WLyGA1DsyMAPNkei5kpp-yV/view?usp=sharing" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
