@@ -68,28 +68,4 @@ class PostSharedViewModelTest {
             assert(postSharedViewModel.postModel.value == postList)
             assert(postSharedViewModel.allUsers.value == userList)
         }
-
-    /*@Test
-    fun `if the posts and users are null keep the last value`() = runTest {
-        val postList = listOf(
-            PostItem(1, 1, "El paro en Ecuador", "El paro duró 15 días", false),
-            PostItem(2, 1, "El paro en Ecuador", "El paro duró 15 días", false)
-        )
-
-        val userList = listOf(
-            UserItem(1, "sd", "jkj", "354545", "lkjkl"),
-            UserItem(2, "sd", "jkj", "354545", "lkjkl")
-        )
-
-        //TODO ver porque no se puede asignar la lista añ livedata
-        //postSharedViewModel.postModel.value = postList
-        //postSharedViewModel.allUsers.value == userList
-
-        coEvery { getPostUseCase.getAllPost() } returns emptyList()
-        coEvery { getUserUseCase.getAllUsers() } returns emptyList()
-        postSharedViewModel.onCreate()
-
-        assert(postSharedViewModel.postModel.value == postList)
-        assert(postSharedViewModel.allUsers.value == userList)
-    }*/
 }
