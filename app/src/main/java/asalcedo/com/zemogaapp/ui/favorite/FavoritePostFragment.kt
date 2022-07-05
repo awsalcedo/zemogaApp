@@ -37,7 +37,6 @@ class FavoritePostFragment : Fragment(), OnClickPostListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //setupTopMenu(view)
         getFavoritePosts()
         setupRecyclerView()
         setupSwipeRefresh()
@@ -46,40 +45,6 @@ class FavoritePostFragment : Fragment(), OnClickPostListener {
     private fun setupSwipeRefresh() {
         binding.srRefresh.setOnRefreshListener {
             getFavoritePosts()
-        }
-    }
-
-    private fun setupTopMenu(view: View) {
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                //mainMenu = menu
-                menuInflater.inflate(R.menu.top_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
-                    R.id.addPostFragment -> {
-                        view.findNavController()
-                            .navigate(R.id.action_postListFragment_to_addPostFragment)
-                        true
-                    }
-                    R.id.delete -> {
-                        deleteAllPost()
-                        true
-                    }
-                    else -> {
-                        false
-                    }
-                }
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
-
-    private fun deleteAllPost() {
-        postFavoriteSharedViewModel.deleteAllPost()
-        postFavoriteSharedViewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.pbFavorite.isVisible = it
         }
     }
 
