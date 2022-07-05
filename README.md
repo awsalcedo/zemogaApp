@@ -1,6 +1,6 @@
 # Zemoga App Android Test
 
-![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
+![alt text](https://drive.google.com/file/d/1ncoJXt5_dIvIUKVC-oG4hJKG29N6aFZ_/view?usp=sharing)
 
 ![alt text](https://storage.cloud.google.com/zemoga_images/Captura%20de%20Pantalla%202022-07-05%20a%20la(s)%2010.58.03.png)
 
