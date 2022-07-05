@@ -1,6 +1,12 @@
 # Zemoga App Android Test
 
 <a href="https://drive.google.com/file/d/1ncoJXt5_dIvIUKVC-oG4hJKG29N6aFZ_/view?usp=sharing">Click to enlarge picture</a>
+
+<a href="https://drive.google.com/file/d/1wZ9v6t0u0WLyGA1DsyMAPNkei5kpp-yV/view?usp=sharing">Click to enlarge picture</a>
+
+<a href="https://drive.google.com/file/d/1GBP8WPSJqGUbNEQcEq7cV0QBfSqCO7zH/view?usp=sharing">Click to enlarge picture</a>
+
+<a href="https://drive.google.com/file/d/1sFsoBo6kqdJv_-G4sJ8y9vX1YN_HZDC5/view?usp=sharing">Click to enlarge picture</a>
  
 
 When starting the test app the first time, they load all the posts from the API, then the information is stored locally and with that information all the requested requirements are developed.
