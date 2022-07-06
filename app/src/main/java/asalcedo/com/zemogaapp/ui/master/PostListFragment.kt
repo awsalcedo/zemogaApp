@@ -2,6 +2,7 @@ package asalcedo.com.zemogaapp.ui.master
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -85,6 +86,8 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
         }
 
         postSharedViewModel.setInfoLiveDataDeleteAllPost()
+        Toast.makeText(activity, getString(R.string.message_delete_all_records), Toast.LENGTH_SHORT)
+            .show()
     }
 
     private fun getInfo() {
@@ -130,17 +133,6 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
         postSharedViewModel.updatePost.observe(viewLifecycleOwner) {
             adapter.deletePost(postItem)
         }
+
     }
-
-    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.top_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(
-            item, requireView().findNavController()
-        ) || super.onOptionsItemSelected(item)
-    }*/
-
 }

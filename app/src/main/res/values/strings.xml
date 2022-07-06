@@ -10,4 +10,5 @@
     <string name="failed_add_post">Failed adding post</string>
     <string name="add_post_message_valid">Review the required fields</string>
     <string name="top_meu_add_post">Add Post</string>
+    <string name="message_delete_all_records">Records deleted successfully!!</string>
 </resources>
