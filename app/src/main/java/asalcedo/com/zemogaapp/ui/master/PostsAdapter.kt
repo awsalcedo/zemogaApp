@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import asalcedo.com.zemogaapp.R
 import asalcedo.com.zemogaapp.databinding.PostItemBinding
 import asalcedo.com.zemogaapp.domain.model.PostItem
+import asalcedo.com.zemogaapp.ui.common.util.basicDiffUtil
 import asalcedo.com.zemogaapp.ui.common.viewmodel.PostSharedViewModel
 import kotlin.properties.Delegates
 
@@ -19,24 +20,11 @@ class PostsAdapter(
 ) :
     RecyclerView.Adapter<PostsAdapter.PostViewHolder>() {
 
-    var postList: MutableList<PostItem> by Delegates.observable(mutableListOf()) { _, old, new ->
-        DiffUtil.calculateDiff(object : DiffUtil.Callback() {
-            override fun getOldListSize(): Int = old.size
-
-            override fun getNewListSize(): Int = new.size
-
-            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                val oldItem = old[oldItemPosition]
-                val newItem = new[newItemPosition]
-                return oldItem.id_post == newItem.id_post
-            }
-
-            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                return old[oldItemPosition] == new[newItemPosition]
-            }
-
-        }).dispatchUpdatesTo(this)
-    }
+    //Using DiffUtil generically via an extension function
+    var postList: MutableList<PostItem> by basicDiffUtil(
+        mutableListOf(),
+        areItemsTheSame = {old, new -> old.id_post == new.id_post}
+    )
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
