@@ -5,18 +5,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import asalcedo.com.zemogaapp.R
 import asalcedo.com.zemogaapp.databinding.PostItemBinding
 import asalcedo.com.zemogaapp.domain.model.PostItem
 import asalcedo.com.zemogaapp.ui.common.viewmodel.PostSharedViewModel
+import kotlin.properties.Delegates
 
 class PostsAdapter(
-    private var postList: MutableList<PostItem>,
     private var listener: OnClickPostListener,
     private var viewModel: PostSharedViewModel
 ) :
     RecyclerView.Adapter<PostsAdapter.PostViewHolder>() {
+
+    var postList: MutableList<PostItem> by Delegates.observable(mutableListOf()) { _, old, new ->
+        DiffUtil.calculateDiff(object : DiffUtil.Callback() {
+            override fun getOldListSize(): Int = old.size
+
+            override fun getNewListSize(): Int = new.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                val oldItem = old[oldItemPosition]
+                val newItem = new[newItemPosition]
+                return oldItem.id_post == newItem.id_post
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return old[oldItemPosition] == new[newItemPosition]
+            }
+
+        }).dispatchUpdatesTo(this)
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         //Inflate the view
@@ -64,17 +85,11 @@ class PostsAdapter(
         }
     }
 
-    fun setPostList(posts: List<PostItem>) {
-        this.postList = posts as MutableList<PostItem>
-        notifyDataSetChanged()
-    }
-
     fun updatePost(post: PostItem) {
         //Determine the index of the selected record
         val index = this.postList.indexOf(post)
         if (index != -1) {
             postList[index] = post
-            notifyItemChanged(index)
         }
     }
 
@@ -82,8 +97,7 @@ class PostsAdapter(
         //Determine the index of the selected record
         val index = this.postList.indexOf(postItem)
         if (index != -1) {
-            postList.removeAt(index)
-            notifyItemRemoved(index)
+            postList.drop(index)
         }
     }
 }

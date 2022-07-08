@@ -23,8 +23,6 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
     private lateinit var binding: FragmentPostListBinding
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: PostsAdapter
-    //private var mainMenu: Menu? = null
-
 
     //Access the viewmodel through a delegate
     private val postSharedViewModel by activityViewModels<PostSharedViewModel>()
@@ -56,7 +54,6 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                //mainMenu = menu
                 menuInflater.inflate(R.menu.top_menu, menu)
             }
 
@@ -93,7 +90,7 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
     private fun getInfo() {
         postSharedViewModel.onCreate()
         postSharedViewModel.postModel.observe(viewLifecycleOwner) { posts ->
-            adapter.setPostList(posts)
+            adapter.postList = posts as MutableList<PostItem>
         }
 
         postSharedViewModel.isLoading.observe(viewLifecycleOwner) {
@@ -107,7 +104,8 @@ class PostListFragment : Fragment(R.layout.fragment_post_list), OnClickPostListe
 
     private fun setupRecyclerView() {
         //Set Layout Manger, adapter and optimize
-        adapter = PostsAdapter(mutableListOf(), this, postSharedViewModel)
+        adapter = PostsAdapter(this, postSharedViewModel)
+        adapter.postList = mutableListOf()
         linearLayoutManager = LinearLayoutManager(activity)
         binding.rvHome.setHasFixedSize(true)
         binding.rvHome.layoutManager = linearLayoutManager
